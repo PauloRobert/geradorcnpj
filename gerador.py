@@ -1,11 +1,14 @@
 import os
 import argparse
+import random
 from datetime import datetime
+
 
 from cnpj import Cnpj
 
 
 OUTPUT_FILE_NAME = 'cnpjs.csv'
+numerosaleatorios = random.getrandbits(28)
 
 def print_count_log(count, total_count, end_line="\n"):
     print(f"{count}/{total_count}", end=end_line)
@@ -16,7 +19,7 @@ if __name__ == "__main__":
 
     parser.add_argument('-i','--initial_cnpj', 
                         type=int,
-                        default=46208711, 
+                        default=numerosaleatorios,
                         help=(
                             "8 primeiros dígitos do CNPJ a ser gerado, " 
                             "esse é o valor que será incrementado, caso precise fazer outra sequência "
@@ -43,8 +46,8 @@ if __name__ == "__main__":
     print('Começando em: '+str(datetime.now().time().strftime('%H:%M:%S')))
 
     output_file_path = os.path.join(dir_output, OUTPUT_FILE_NAME)
-    csv_header = 'cnpj_basico,cnpj_ordem,cnpj_dv,cnpj'
-
+    #csv_header = 'cnpj_basico,cnpj_ordem,cnpj_dv,cnpj'
+    csv_header = 'cnpj'
     with open(output_file_path,'w') as f:
         f.write(csv_header)
         next_cnpj = initial_cnpj
@@ -58,9 +61,9 @@ if __name__ == "__main__":
 
             new_cnpj = Cnpj(str(next_cnpj))
             row_content = csv_sep.join([
-                new_cnpj.cnpj_basico,
-                new_cnpj.ordem,
-                new_cnpj.dv,
+                #new_cnpj.cnpj_basico,
+                #new_cnpj.ordem,
+                #new_cnpj.dv,
                 str(new_cnpj)
             ])
 
