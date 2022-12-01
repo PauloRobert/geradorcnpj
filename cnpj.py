@@ -39,6 +39,7 @@ class Cnpj:
         cnpj = str(self.cnpj_basico)
         return cnpj[:2] +"."+ cnpj[2:5] +"."+ cnpj[5:] +'/'+ self.ordem +'-'+ str(self.dv)
 
+
     def __init__(self, cnpj):
         if self.__valid_cnpj_length__(cnpj):
             self.cnpj_basico = cnpj
@@ -46,7 +47,7 @@ class Cnpj:
             self.dv = self.__gera_dv__(str(cnpj))
             self.cnpj_formatado = self.__cnpj_formatado__() 
         else:
-            raise Exception("O formato do CNPJ informado é inválido") 
+            raise Exception("Formato inválido - Execute novamente por favor!")
 
     def __str__(self):
         return str(self.cnpj_basico) + self.ordem + str(self.dv)
