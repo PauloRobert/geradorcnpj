@@ -6,9 +6,11 @@ from datetime import datetime
 
 from cnpj import Cnpj
 
-
-OUTPUT_FILE_NAME = 'cnpjs.csv'
+massasgeradas = 'arquivos/'
+current_datetime = datetime.now()
+OUTPUT_FILE_NAME = 'CNPJ-' + str(datetime.now().time().strftime('%H-%M')) +'.csv'
 numerosaleatorios = random.getrandbits(28)
+
 
 def print_count_log(count, total_count, end_line="\n"):
     print(f"{count}/{total_count}", end=end_line)
@@ -45,7 +47,8 @@ if __name__ == "__main__":
 
     print('Começando em: '+str(datetime.now().time().strftime('%H:%M:%S')))
 
-    output_file_path = os.path.join(dir_output, OUTPUT_FILE_NAME)
+    #output_file_path = os.path.join(dir_output, OUTPUT_FILE_NAME)
+    output_file_path = os.path.join(massasgeradas, OUTPUT_FILE_NAME)
     #csv_header = 'cnpj_basico,cnpj_ordem,cnpj_dv,cnpj'
     csv_header = 'cnpj'
     with open(output_file_path,'w') as f:
