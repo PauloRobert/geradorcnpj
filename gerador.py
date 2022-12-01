@@ -8,7 +8,7 @@ from cnpj import Cnpj
 
 massasgeradas = 'arquivos/'
 current_datetime = datetime.now()
-OUTPUT_FILE_NAME = 'CNPJ-' + str(datetime.now().time().strftime('%H-%M')) +'.csv'
+OUTPUT_FILE_NAME = 'CNPJ-' + str(datetime.now().time().strftime('%H-%M-%S')) +'.txt'
 numerosaleatorios = random.getrandbits(28)
 
 

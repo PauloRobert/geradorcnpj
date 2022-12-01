@@ -47,7 +47,7 @@ class Cnpj:
             self.dv = self.__gera_dv__(str(cnpj))
             self.cnpj_formatado = self.__cnpj_formatado__() 
         else:
-            raise Exception("Formato inválido - Execute novamente por favor!")
+            raise Exception("CNPJ no Formato inválido - Execute novamente por favor!")
 
     def __str__(self):
         return str(self.cnpj_basico) + self.ordem + str(self.dv)
