@@ -1,15 +1,20 @@
 import os
 import argparse
 import random
+import string
 from datetime import datetime
 
 
 from cnpj import Cnpj
 
+
+def random_generator(size=8, chars=string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+
 massasgeradas = 'arquivos/'
 current_datetime = datetime.now()
 OUTPUT_FILE_NAME = 'CNPJ-' + str(datetime.now().time().strftime('%H-%M-%S')) +'.txt'
-numerosaleatorios = random.getrandbits(28)
+numerosaleatorios = random_generator(size=8, chars=string.digits)
 
 
 def print_count_log(count, total_count, end_line="\n"):
